@@ -1,0 +1,29 @@
+﻿<Window x:Class="IFC_Parameter_Automation.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IFC_Parameter_Automation"
+             mc:Ignorable="d" 
+             d:DesignHeight="170" d:DesignWidth="300" Title="IFC Parameter" Background="LightGray">
+    <Border Background="#FFEDEDED" Margin="10" BorderBrush="#FFD0D0D0" 
+            BorderThickness="1" CornerRadius="10">
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="Column_Selection" Content="Select Column" Grid.Column="0" Width="80" Margin="0 20" Click="Column_Click"/>
+                <Button x:Name="Wall_Selection" Content="Select Wall" Grid.Column="1" Width="80" Margin="0 20" Click="Wall_Click"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="Cancel" Content="Cancel" Grid.Column="1" Width="80" Margin="0 20" Click="Cancel_Click"/>
+            </Grid>
+        </StackPanel>
+    </Border>
+</Window>
