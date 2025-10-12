@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36518.9 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IFC_Parameter_Automation", "IFC Parameter Rev01\IFC_Parameter_Automation.csproj", "{6245BEA6-6732-49E2-881D-573F001D6D2B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IFC_Parameter_Automation", "IFC Parameter Automation\IFC_Parameter_Automation.csproj", "{6245BEA6-6732-49E2-881D-573F001D6D2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

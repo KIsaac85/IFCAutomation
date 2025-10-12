@@ -7,8 +7,8 @@
     <ProjectGuid>{6245BEA6-6732-49E2-881D-573F001D6D2B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IFC_Parameter_Rev01</RootNamespace>
-    <AssemblyName>IFC Parameter Rev01</AssemblyName>
+    <RootNamespace>IFC_Parameter_Automation</RootNamespace>
+    <AssemblyName>IFC Parameter Automation</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
