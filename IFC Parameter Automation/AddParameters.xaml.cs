@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using Autodesk.Revit.UI.Selection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,17 +16,74 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 namespace IFC_Parameter_Automation
 {
     /// <summary>
     /// Interaction logic for AddParameters.xaml
     /// </summary>
-    public partial class AddParameters : UserControl
+    public partial class AddParameters : Window
     {
-        public AddParameters()
+
+        #region Document
+        private UIDocument _uidoc { get; set; }
+        private Document doc { get; set; }
+        #endregion
+
+
+        #region Single Element Selection Members
+        private Element singleElement { get; set; }
+        private Reference objectReference { get; set; }
+        private static SelectionFilter SingleSelectionFilter { get; set; }
+        private static double levelelement { get; set; }
+        #endregion
+
+        public AddParameters(UIDocument uidoc)
         {
             InitializeComponent();
+            _uidoc = uidoc;
+            doc = uidoc.Document;
+            SingleSelectionFilter = new SelectionFilter();
+        }
+
+        private void Pick_Object(object sender, RoutedEventArgs e)
+        {
+            Hide();
+      
+            try
+            {
+                objectReference = _uidoc.Selection.PickObject(ObjectType.Element, SingleSelectionFilter);
+            }
+            catch (Exception) { TaskDialog.Show("Error", "error"); }
+
+
+            if (objectReference != null)
+            {
+                singleElement = doc.GetElement(objectReference.ElementId);
+               
+
+              
+
+                    if (singleElement.Category.Id.Value == (int)BuiltInCategory.OST_Walls)
+                    {
+
+                       TaskDialog.Show("IFC Parameter Automation", "Wall selected");
+                }
+                    else if (singleElement.Category.Id.Value == (int)BuiltInCategory.OST_StructuralColumns)
+                    {
+
+                       TaskDialog.Show("IFC Parameter Automation", "Column selected");
+
+                }
+
+
+            }
+
+            Show();
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

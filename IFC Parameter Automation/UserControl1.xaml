@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IFC_Parameter_Automation"
              mc:Ignorable="d" 
-             d:DesignHeight="170" d:DesignWidth="300" Title="IFC Parameter" Background="LightGray">
+             d:DesignHeight="170" d:DesignWidth="300" Title="IFC Parameter" Background="LightGray" Height="200" Width="350" WindowStartupLocation="CenterScreen">
     <Border Background="#FFEDEDED" Margin="10" BorderBrush="#FFD0D0D0" 
             BorderThickness="1" CornerRadius="10">
         <StackPanel>
@@ -14,10 +14,16 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button x:Name="Column_Selection" Content="Select Element" Grid.Column="0" Width="90" Margin="0 20" Click="Column_Click"/>
-                <Button x:Name="Wall_Selection" Content="Select Elements" Grid.Column="1" Width="90" Margin="0 20" Click="Wall_Click"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="Adding_IFC_Parameters" Content="Add IFC Parameters" Grid.Column="0" Width="120" Margin="0 20" Click="Add_IFC_Parameters"/>
+                <Button x:Name="Checking_IFC_Parameters" Content="Check IFC Parameters" Grid.Column="1" Width="120" Margin="0 20" Click="Check_IFC_Parameters"/>
             </Grid>
             <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
