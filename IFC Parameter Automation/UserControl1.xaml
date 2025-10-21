@@ -14,15 +14,15 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button x:Name="Column_Selection" Content="Select Column" Grid.Column="0" Width="80" Margin="0 20" Click="Column_Click"/>
-                <Button x:Name="Wall_Selection" Content="Select Wall" Grid.Column="1" Width="80" Margin="0 20" Click="Wall_Click"/>
+                <Button x:Name="Column_Selection" Content="Select Element" Grid.Column="0" Width="90" Margin="0 20" Click="Column_Click"/>
+                <Button x:Name="Wall_Selection" Content="Select Elements" Grid.Column="1" Width="90" Margin="0 20" Click="Wall_Click"/>
             </Grid>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button x:Name="Cancel" Content="Cancel" Grid.Column="1" Width="80" Margin="0 20" Click="Cancel_Click"/>
+                <Button x:Name="Cancel" Content="Cancel" Grid.Column="1" Width="90" Margin="0 20" Click="Cancel_Click"/>
             </Grid>
         </StackPanel>
     </Border>
