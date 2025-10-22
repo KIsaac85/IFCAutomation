@@ -16,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
+
 namespace IFC_Parameter_Automation
 {
     /// <summary>
@@ -34,7 +36,7 @@ namespace IFC_Parameter_Automation
         private Element singleElement { get; set; }
         private Reference objectReference { get; set; }
         private static SelectionFilter SingleSelectionFilter { get; set; }
-        private static double levelelement { get; set; }
+       
         #endregion
 
         public AddParameters(UIDocument uidoc)
@@ -43,6 +45,8 @@ namespace IFC_Parameter_Automation
             _uidoc = uidoc;
             doc = uidoc.Document;
             SingleSelectionFilter = new SelectionFilter();
+            // Assign the DataContext to your ViewModel
+            DataContext = new PropertyListViewModel();
         }
 
         private void Pick_Object(object sender, RoutedEventArgs e)
@@ -85,5 +89,6 @@ namespace IFC_Parameter_Automation
         {
             Close();
         }
+    
     }
 }

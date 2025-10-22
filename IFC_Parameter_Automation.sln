@@ -5,12 +5,6 @@ VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IFC_Parameter_Automation", "IFC Parameter Automation\IFC_Parameter_Automation.csproj", "{6245BEA6-6732-49E2-881D-573F001D6D2B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JSON Data", "JSON Data", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
-	ProjectSection(SolutionItems) = preProject
-		Class1.cs = Class1.cs
-		Pset_DoorCommon.JSON = Pset_DoorCommon.JSON
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

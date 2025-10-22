@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IFC_Parameter_Automation"
-             mc:Ignorable="d" Height="200" Width="300"
+             mc:Ignorable="d" Height="600" Width="300"
              d:DesignHeight="170" d:DesignWidth="300" Title="Add Parameters" Background="LightGray" WindowStartupLocation="CenterScreen">
     <Border Background="#FFEDEDED" Margin="10" BorderBrush="#FFD0D0D0" 
             BorderThickness="1" CornerRadius="10" >
@@ -21,6 +21,25 @@
                 <Button x:Name="Picking_Object" Content="Pick Object" Grid.Column="0" Width="120" Margin="0 20" Click="Pick_Object" ToolTip="Select a door or a wall" Cursor="Hand"/>
                 <TextBlock x:Name="Select_Category" Text="Select Category" Grid.Column="1"/>
                 <DataGrid x:Name="Category_List" Grid.Column="1" Width="120" Margin="0 20"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <ListView ItemsSource="{Binding Properties}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <CheckBox IsChecked="{Binding IsSelected}" Margin="0,0,10,0"/>
+                                <TextBlock Text="{Binding Code}" FontWeight="Bold" Width="200"/>
+                                <TextBlock Text="{Binding DataType}" Foreground="Gray" Margin="10,0,0,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </Grid>
             <Grid>
                 <Grid.ColumnDefinitions>
