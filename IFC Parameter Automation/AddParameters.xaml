@@ -35,7 +35,6 @@
                             <StackPanel Orientation="Horizontal" Margin="5">
                                 <CheckBox IsChecked="{Binding IsSelected}" Margin="0,0,10,0"/>
                                 <TextBlock Text="{Binding Code}" FontWeight="Bold" Width="200"/>
-                                <TextBlock Text="{Binding DataType}" Foreground="Gray" Margin="10,0,0,0"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>

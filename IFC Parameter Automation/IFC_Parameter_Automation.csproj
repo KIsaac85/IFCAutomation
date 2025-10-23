@@ -80,6 +80,7 @@
   <ItemGroup>
     <None Include="IFC Parameter.addin" />
     <None Include="packages.config" />
+    <None Include="Pset_WallCommon.JSON" />
     <None Include="Pset_DoorCommon.JSON" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

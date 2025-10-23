@@ -7,16 +7,18 @@ namespace IFC_Parameter_Automation
 {
     public class PropertyListViewModel
     {
+        
         public ObservableCollection<PropertyItem> Properties { get; set; }
 
-        public PropertyListViewModel()
+        public PropertyListViewModel(string jsonPath)
         {
-            LoadProperties();
+          
+            
         }
 
-        private void LoadProperties()
+        public void LoadProperties(string jsonPath)
         {
-            string jsonPath = @"F:\Access\semester 3\Project\IFC Parameter Automation\Pset_DoorCommon.JSON";
+            
             if (File.Exists(jsonPath))
             {
                 string jsonText = File.ReadAllText(jsonPath);

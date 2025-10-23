@@ -36,9 +36,10 @@ namespace IFC_Parameter_Automation
         private Element singleElement { get; set; }
         private Reference objectReference { get; set; }
         private static SelectionFilter SingleSelectionFilter { get; set; }
-       
-        #endregion
+        public PropertyListViewModel _viewModel { get; set; }
 
+        #endregion
+        public string JsonPath { get; set; }
         public AddParameters(UIDocument uidoc)
         {
             InitializeComponent();
@@ -46,7 +47,8 @@ namespace IFC_Parameter_Automation
             doc = uidoc.Document;
             SingleSelectionFilter = new SelectionFilter();
             // Assign the DataContext to your ViewModel
-            DataContext = new PropertyListViewModel();
+            _viewModel = new PropertyListViewModel(JsonPath);
+            DataContext = _viewModel;
         }
 
         private void Pick_Object(object sender, RoutedEventArgs e)
@@ -63,23 +65,29 @@ namespace IFC_Parameter_Automation
             if (objectReference != null)
             {
                 singleElement = doc.GetElement(objectReference.ElementId);
-               
 
-              
+                JsonPath="";
 
-                    if (singleElement.Category.Id.Value == (int)BuiltInCategory.OST_Walls)
+                if (singleElement.Category.Id.Value == (int)BuiltInCategory.OST_Walls)
                     {
 
-                       TaskDialog.Show("IFC Parameter Automation", "Wall selected");
+                    JsonPath = @"F:\Access\semester 3\Project\IFC Parameter Automation\Pset_WallCommon.JSON";
                 }
                     else if (singleElement.Category.Id.Value == (int)BuiltInCategory.OST_StructuralColumns)
                     {
 
-                       TaskDialog.Show("IFC Parameter Automation", "Column selected");
+                    JsonPath = @"F:\Access\semester 3\Project\IFC Parameter Automation\Pset_DoorCommon.JSON";
 
                 }
 
+                if (!string.IsNullOrEmpty(JsonPath))
+                {
+                    _viewModel.LoadProperties(JsonPath);
 
+                    // Refresh DataContext bindings
+                    DataContext = null;
+                    DataContext = _viewModel;
+                }
             }
 
             Show();

@@ -1,0 +1,72 @@
+[
+  {
+    "id": 0,
+    "code": "AcousticRating",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/AcousticRating",
+    "dataType": "String",
+    "definition": "Acoustic rating for this object.; It is provided according to the national building code. It indicates the sound transmission resistance of this object by an index ratio (instead of providing full sound absorption values). "
+  },
+  {
+    "id": 1,
+    "code": "Combustible",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/Combustible",
+    "dataType": "Boolean",
+    "definition": "Indication whether the object is made from combustible material (TRUE) or not (FALSE)."
+  },
+  {
+    "id": 2,
+    "code": "Compartmentation",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/Compartmentation",
+    "dataType": "Boolean",
+    "definition": "Indication whether the object is designed to serve as a fire compartmentation (TRUE) or not (FALSE)."
+  },
+  {
+    "id": 3,
+    "code": "Extend to Structure",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/ExtendToStructure",
+    "dataType": "Boolean",
+    "definition": "Indicates whether the object extend to the structure above (TRUE) or not (FALSE)."
+  },
+  {
+    "id": 4,
+    "code": "FireRating",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/FireRating",
+    "dataType": "String",
+    "definition": "Fire rating for this object. It is given according to the national fire safety classification."
+  },
+  {
+    "id": 5,
+    "code": "IsExternal",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/IsExternal",
+    "dataType": "Boolean",
+    "definition": "Indication whether the element is designed for use in the exterior (TRUE) or not (FALSE). If (TRUE) it is an external element and faces the outside of the building."
+  },
+  {
+    "id": 6,
+    "code": "Load Bearing",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/LoadBearing",
+    "dataType": "Boolean",
+    "definition": "Indicates whether the object is intended to carry loads (TRUE) or not (FALSE)."
+  },
+  {
+    "id": 7,
+    "code": "Status",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/Status",
+    "dataType": "String",
+    "definition": "[[Status]] of the element, predominately used in renovation or retrofitting projects. The status can be assigned to as 'New' - element designed as new addition, 'Existing' - element exists and remains, 'Demolish' - element existed but is to be demolished, 'Temporary' - element will exists only temporary (like a temporary support structure)."
+  },
+  {
+    "id": 8,
+    "code": "Surface Spread of Flame",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/SurfaceSpreadOfFlame",
+    "dataType": "String",
+    "definition": "Indication on how the flames spread around the surface,; It is given according to the national building code that governs the fire behaviour for materials."
+  },
+  {
+    "id": 9,
+    "code": "ThermalTransmittance",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/ThermalTransmittance",
+    "dataType": "Real",
+    "definition": "Thermal transmittance coefficient (U-[[Value]]) of an element, within the direction of the thermal flow (including all materials)."
+  }
+]
