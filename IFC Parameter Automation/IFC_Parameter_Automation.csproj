@@ -63,6 +63,7 @@
     <Compile Include="PropertyItem.cs" />
     <Compile Include="PropertyListViewModel.cs" />
     <Compile Include="SelectionFilter.cs" />
+    <Compile Include="singleElement.cs" />
     <Compile Include="UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>

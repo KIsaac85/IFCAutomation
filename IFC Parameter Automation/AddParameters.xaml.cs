@@ -37,6 +37,7 @@ namespace IFC_Parameter_Automation
         private Reference objectReference { get; set; }
         private static SelectionFilter SingleSelectionFilter { get; set; }
         public PropertyListViewModel _viewModel { get; set; }
+        public singleSelectedElement selectedElement { get; set; }
 
         #endregion
         public string JsonPath { get; set; }
@@ -49,6 +50,7 @@ namespace IFC_Parameter_Automation
             // Assign the DataContext to your ViewModel
             _viewModel = new PropertyListViewModel(JsonPath);
             DataContext = _viewModel;
+            
         }
 
         private void Pick_Object(object sender, RoutedEventArgs e)
@@ -72,6 +74,11 @@ namespace IFC_Parameter_Automation
                     {
 
                     JsonPath = @"F:\Access\semester 3\Project\IFC Parameter Automation\Pset_WallCommon.JSON";
+                    selectedElement = new singleSelectedElement(singleElement);
+                   /* {
+                        elememntID = singleElement.Id.Value,
+                        elementName = singleElement.Name
+                    };*/
                 }
                     else if (singleElement.Category.Id.Value == (int)BuiltInCategory.OST_StructuralColumns)
                     {
