@@ -79,11 +79,24 @@
 
             <!-- Cancel Button -->
             <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="Confirm"
+                        Content="Confirm"
+                        Width="90"
+                        Height="30"
+                        Grid.Column="0"
+                        Click="Confirm_Click"/>
                 <Button x:Name="Cancel"
                         Content="Cancel"
                         Width="90"
                         Height="30"
-                        HorizontalAlignment="Right"
+                        Grid.Column="1"
                         Click="Cancel_Click"/>
             </Grid>
 
