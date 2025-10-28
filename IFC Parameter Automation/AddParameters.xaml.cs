@@ -39,7 +39,8 @@ namespace IFC_Parameter_Automation
         private static SelectionFilter SingleSelectionFilter { get; set; }
         public PropertyListViewModel _viewModel { get; set; }
         public singleSelectedElement selectedElement { get; set; }
-        public List<string> selectedProperties { get; set; } = new List<string>();
+        public List<PropertyItem> selectedProperties { get; set; } = new List<PropertyItem>();
+        public Category cat { get; set; }
 
         #endregion
         public string JsonPath { get; set; }
@@ -63,7 +64,7 @@ namespace IFC_Parameter_Automation
             {
                 objectReference = _uidoc.Selection.PickObject(ObjectType.Element, SingleSelectionFilter);
             }
-            catch (Exception) { TaskDialog.Show("Error", "error"); }
+            catch (Exception) {  }
 
 
             if (objectReference != null)
@@ -79,7 +80,7 @@ namespace IFC_Parameter_Automation
                     selectedElement = new singleSelectedElement(singleElement);
 
                 }
-                else if (singleElement.Category.Id.Value == (int)BuiltInCategory.OST_StructuralColumns)
+                else if (singleElement.Category.Id.Value == (int)BuiltInCategory.OST_Doors)
                 {
 
                     JsonPath = @"F:\Access\semester 3\Project\IFC Parameter Automation\Pset_DoorCommon.JSON";
@@ -114,14 +115,14 @@ namespace IFC_Parameter_Automation
             }
 
             // Get selected properties from the ViewModel
-            var selectedProperties = _viewModel.Properties.Where(p => p.IsSelected).ToList();
+            selectedProperties = _viewModel.Properties.Where(p => p.IsSelected).ToList();
 
             if (!selectedProperties.Any())
             {
                 TaskDialog.Show("Info", "No parameters selected.");
                 return;
             }
-            Category cat = singleElement.Category;
+            cat = singleElement.Category;
             // Store in our selectedElement object
             //selectedElement.SelectedPropertyNames = selectedProperties;
 
@@ -129,38 +130,22 @@ namespace IFC_Parameter_Automation
             StringBuilder sb = new StringBuilder();
             foreach (var prop in selectedProperties)
             {
-                // ✅ Check if the element already has this parameter
+                //  Check if the element already has this parameter
                 bool alreadyExists = selectedElement.IFCparameters
                     .Any(p => p.Definition.Name.Equals(prop.Code, StringComparison.OrdinalIgnoreCase));
 
                 if (alreadyExists)
                 {
-                    TaskDialog.Show("Info", $"Parameter '{prop.Code}' already exists on {cat.Name}.");
+                    sb.AppendLine(prop.Code);
                     continue;
                 }
 
-                // ✅ Otherwise, add it
+                //  Otherwise, add it
                 AddParameter(prop.Code, prop.DataType, prop.Definition, cat);
             }
-            TaskDialog.Show("selected elements", sb.ToString());
-            /*
-                foreach (string paramName in selectedElement.SelectedPropertyNames)
-                {
-                    // Try to find an existing parameter on the element
-                    Parameter param = selectedElement.IFCparameters
-                        .FirstOrDefault(p => p.Definition.Name.Equals(paramName, StringComparison.OrdinalIgnoreCase));
-
-                    if (param != null && !param.IsReadOnly)
-                    {
-                        // Example: set string value (you can customize this)
-                        param.Set("Updated by IFC Automation");
-                    }
-                    else
-                    {
-                        // If it doesn’t exist, show info (you could also create shared parameters here)
-                        TaskDialog.Show("Info", $"Parameter '{paramName}' not found on element {selectedElement.elementName}");
-                    }
-                }*/
+            if (sb.Length > 0)
+                TaskDialog.Show("Info", $"Parameter(s) '{sb}' already exist(s) on {cat.Name}.");
+           
 
 
 
@@ -181,10 +166,10 @@ namespace IFC_Parameter_Automation
 
             using (FileStream fs = File.Create(sharedParamPath)) { }
 
-            // ✅ Tell Revit to use this file as the shared parameter file
+            //  Tell Revit to use this file as the shared parameter file
             _uidoc.Application.Application.SharedParametersFilename = sharedParamPath;
 
-            // ✅ Now open it safely
+            // Now open it safely
             DefinitionFile defFile = _uidoc.Application.Application.OpenSharedParameterFile();
             if (defFile == null)
             {
@@ -192,12 +177,12 @@ namespace IFC_Parameter_Automation
                 return;
             }
 
-            // ✅ Create or get the group
+            // Create or get the group
             DefinitionGroup group = defFile.Groups.Cast<DefinitionGroup>()
                 .FirstOrDefault(g => g.Name == "Add IFC Params")
                 ?? defFile.Groups.Create("Add IFC Params");
 
-            // ✅ Choose the data type
+            // Choose the data type
             ForgeTypeId forgeTypeId = SpecTypeId.String.Text;
             if (dataType.Equals("Boolean", StringComparison.OrdinalIgnoreCase))
                 forgeTypeId = SpecTypeId.Boolean.YesNo;
@@ -208,10 +193,10 @@ namespace IFC_Parameter_Automation
             {
                 Description = description
             };
-
+           
             Definition newParamDef = group.Definitions.Create(options);
 
-            // ✅ Set up category binding
+            // Set up category binding
             CategorySet categorySet = _uidoc.Application.Application.Create.NewCategorySet();
             categorySet.Insert(category);
 
