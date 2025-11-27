@@ -83,10 +83,10 @@
 
                     JsonPath = "";
 
-                    if (singleElement.Category.Id.Value == (int)BuiltInCategory.OST_Walls)
+                    if (singleElement.Category.Id.Value == (int)BuiltInCategory.OST_Windows)
                     {
 
-                        JsonPath = @"F:\Access\semester 3\Project\IFC Parameter Automation\Pset_WallCommon.JSON";
+                        JsonPath = @"F:\Access\semester 3\Project\IFC Parameter Automation\Pset_WindowCommon.JSON";
                         selectedElement = new singleSelectedElement(singleElement);
 
                     }
