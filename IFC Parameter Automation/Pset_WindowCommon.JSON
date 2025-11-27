@@ -1,0 +1,115 @@
+[
+  {
+    "id": 0,
+    "code": "Acoustic Rating",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/AcousticRating",
+    "dataType": "String",
+    "definition": "Acoustic rating for this object.; It is provided according to the national building code. It indicates the sound transmission resistance of this object by an index ratio (instead of providing full sound absorption values). "
+  },
+  {
+    "id": 1,
+    "code": "Fire Exit",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/FireExit",
+    "dataType": "Boolean",
+    "definition": "Indication whether this object is designed to serve as an exit in the case of fire (TRUE) or not (FALSE)."
+  },
+  {
+    "id": 2,
+    "code": "Fire Rating",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/FireRating",
+    "dataType": "String",
+    "definition": "Fire rating for this object. It is given according to the national fire safety classification."
+  },
+  {
+    "id": 3,
+    "code": "Glazing Area Fraction",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/GlazingAreaFraction",
+    "dataType": "Real",
+    "definition": "Fraction of the glazing area relative to the total area of the filling element.; It shall be used, if the glazing area is not given separately for all panels within the filling element."
+  },
+  {
+    "id": 4,
+    "code": "Has Drive",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/HasDrive",
+    "dataType": "Boolean",
+    "definition": "Indication whether this object has an automatic drive to operate it (TRUE) or no drive (FALSE)"
+  },
+
+  {
+    "id": 5,
+    "code": "Has Sill External",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/HasSillExternal",
+    "dataType": "Boolean",
+    "definition": "Indication whether the window opening has an external sill (TRUE) or not (FALSE)."
+  },
+  {
+    "id": 6,
+    "code": "Has Sill Internal",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/HasSillInternal",
+    "dataType": "Boolean",
+    "definition": "Indication whether the window opening has an internal sill (TRUE) or not (FALSE)."
+  },
+  {
+    "id": 7,
+    "code": "Infiltration",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/Infiltration",
+    "dataType": "Real",
+    "definition": "[[Infiltration]] flowrate of outside air for the filler object based on the area of the filler object at a pressure level of 50 Pascals. It shall be used, if the length of all joints is unknown."
+  },
+  {
+    "id": 8,
+    "code": "Is External",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/IsExternal",
+    "dataType": "Boolean",
+    "definition": "Indication whether the element is designed for use in the exterior (TRUE) or not (FALSE). If (TRUE) it is an external element and faces the outside of the building."
+  },
+  {
+    "id": 9,
+    "code": "Mechanical Load Rating",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/MechanicalLoadRating",
+    "dataType": "String",
+    "definition": "Mechanical load rating for this object.; It is provided according to the national building code."
+  },
+  {
+    "id": 10,
+    "code": "Security Rating",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/SecurityRating",
+    "dataType": "String",
+    "definition": "Index based rating system indicating security level.; It is giving according to the national building code."
+  },
+  {
+    "id": 11,
+    "code": "Smoke Stop",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/SmokeStop",
+    "dataType": "Boolean",
+    "definition": "Indication whether the object is designed to provide a smoke stop (TRUE) or not (FALSE)."
+  },
+  {
+    "id": 12,
+    "code": "Status",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/Status",
+    "dataType": "String",
+    "definition": "[[Status]] of the element, predominately used in renovation or retrofitting projects. The status can be assigned to as 'New' - element designed as new addition, 'Existing' - element exists and remains, 'Demolish' - element existed but is to be demolished, 'Temporary' - element will exists only temporary (like a temporary support structure)."
+  },
+  {
+    "id": 13,
+    "code": "Thermal Transmittance",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/ThermalTransmittance",
+    "dataType": "Real",
+    "definition": "Thermal transmittance coefficient (U-[[Value]]) of an element, within the direction of the thermal flow (including all materials)."
+  },
+  {
+    "id": 14,
+    "code": "Water Tightness Rating",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/WaterTightnessRating",
+    "dataType": "String",
+    "definition": "[[Water]] tightness rating for this object.; It is provided according to the national building code."
+  },
+  {
+    "id": 15,
+    "code": "Wind Load Rating",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/WindLoadRating",
+    "dataType": "String",
+    "definition": "Wind load resistance rating for this object.; It is provided according to the national building code."
+  }
+]
