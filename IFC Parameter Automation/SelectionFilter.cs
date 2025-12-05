@@ -27,25 +27,15 @@ namespace IFC_Parameter_Automation
 
         public bool AllowElement(Element elem)
         {
-            if (elem.Category.Id.Value == (int)BuiltInCategory.OST_StructuralColumns
-                || elem.Category.Id.Value == (int)BuiltInCategory.OST_StructuralFraming)
+            if (elem.Category.Id.Value == (int)BuiltInCategory.OST_Windows)
             {
-                FamilyInstance familyInstance = elem as FamilyInstance;
-                if (familyInstance.StructuralMaterialType == StructuralMaterialType.Concrete)
-                {
+                
+               
                     return true & null != elem; 
-                }
+                
             }
-            else if (elem.Category.Id.Value == (int)BuiltInCategory.OST_Walls)
-            {
-                Wall wall = elem as Wall;
-                if (wall.CurtainGrid==null&&wall.StructuralUsage==StructuralWallUsage.Bearing)
-                {
-
-                    return true & null != elem;
-                }
-            }
-            else if (elem.Category.Id.Value == (int)BuiltInCategory.OST_StructuralFoundation)
+       
+            else if (elem.Category.Id.Value == (int)BuiltInCategory.OST_Doors)
             {
                 return true & null != elem;
             }
@@ -58,31 +48,24 @@ namespace IFC_Parameter_Automation
             RevitLinkInstance revitlinkinstance = _doc.GetElement(reference) as RevitLinkInstance;
             Document docLink = revitlinkinstance.GetLinkDocument();
             Element eFootingLink = docLink.GetElement(reference.LinkedElementId);
-            if (eFootingLink.Category.Id.Value == (int)BuiltInCategory.OST_StructuralColumns
-                || eFootingLink.Category.Id.Value == (int)BuiltInCategory.OST_StructuralFraming)
+            if (eFootingLink.Category.Id.Value == (int)BuiltInCategory.OST_Windows)
             {
-                FamilyInstance familyInstance = eFootingLink as FamilyInstance;
-                if (familyInstance.StructuralMaterialType == StructuralMaterialType.Concrete)
-                {
-                    return true && null != eFootingLink;
-                }
+               
+                return true && null != eFootingLink;
+                
                 
             }
-            else if (eFootingLink.Category.Id.Value == (int)BuiltInCategory.OST_Walls)
+            else if (eFootingLink.Category.Id.Value == (int)BuiltInCategory.OST_Doors)
             {
 
-                Wall wall = eFootingLink as Wall;
-                if (wall.CurtainGrid == null && wall.StructuralUsage == StructuralWallUsage.Bearing)
-                {
+               
+                
 
-                    return true & null != eFootingLink;
-                }
-
-            }
-            else if (eFootingLink.Category.Id.Value == (int)BuiltInCategory.OST_StructuralFoundation)
-            {
                 return true & null != eFootingLink;
+                
+
             }
+          
             return false;
         }
     }

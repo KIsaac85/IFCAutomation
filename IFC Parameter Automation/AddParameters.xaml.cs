@@ -86,14 +86,14 @@
                     if (singleElement.Category.Id.Value == (int)BuiltInCategory.OST_Windows)
                     {
 
-                        JsonPath = @"F:\Access\semester 3\Project\IFC Parameter Automation\Pset_WindowCommon.JSON";
+                        JsonPath = @"F:\Access\semester 3\Project\IFC Parameter Automation\IFC Parameter Automation\Pset_WindowCommon.JSON";
                         selectedElement = new singleSelectedElement(singleElement);
 
                     }
                     else if (singleElement.Category.Id.Value == (int)BuiltInCategory.OST_Doors)
                     {
 
-                        JsonPath = @"F:\Access\semester 3\Project\IFC Parameter Automation\Pset_DoorCommon.JSON";
+                        JsonPath = @"F:\Access\semester 3\Project\IFC Parameter Automation\IFC Parameter Automation\Pset_DoorCommon.JSON";
                         selectedElement = new singleSelectedElement(singleElement);
 
                     }
