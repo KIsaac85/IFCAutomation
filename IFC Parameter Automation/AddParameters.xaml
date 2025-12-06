@@ -28,7 +28,7 @@
                         Width="120"
                         Height="30"
                         Click="Pick_Object"
-                        ToolTip="Select a door or a wall"
+                        ToolTip="Select a Door or a Window"
                         Cursor="Hand"
                         HorizontalAlignment="Left"/>
             </Grid>
