@@ -13,29 +13,28 @@
     "dataType": "Boolean",
     "definition": "Indication whether this object is designed to serve as an exit in the case of fire (TRUE) or not (FALSE)."
   },
-
   {
     "id": 2,
+    "code": "Fire Rating",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/FireRating",
+    "dataType": "String",
+    "definition": "Fire rating for this object. It is given according to the national fire safety classification."
+  },
+  {
+    "id": 3,
     "code": "Glazing Area Fraction",
     "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/GlazingAreaFraction",
     "dataType": "Real",
     "definition": "Fraction of the glazing area relative to the total area of the filling element.; It shall be used, if the glazing area is not given separately for all panels within the filling element."
   },
   {
-    "id": 3,
+    "id": 4,
     "code": "Has Drive",
     "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/HasDrive",
     "dataType": "Boolean",
     "definition": "Indication whether this object has an automatic drive to operate it (TRUE) or no drive (FALSE)"
   },
 
-  {
-    "id": 4,
-    "code": "Wind Load Rating",
-    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/WindLoadRating",
-    "dataType": "String",
-    "definition": "Wind load resistance rating for this object.; It is provided according to the national building code."
-  },
   {
     "id": 5,
     "code": "Has Sill External",
@@ -94,9 +93,23 @@
   },
   {
     "id": 13,
+    "code": "Thermal Transmittance",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/ThermalTransmittance",
+    "dataType": "Real",
+    "definition": "Thermal transmittance coefficient (U-[[Value]]) of an element, within the direction of the thermal flow (including all materials)."
+  },
+  {
+    "id": 14,
     "code": "Water Tightness Rating",
     "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/WaterTightnessRating",
     "dataType": "String",
     "definition": "[[Water]] tightness rating for this object.; It is provided according to the national building code."
+  },
+  {
+    "id": 15,
+    "code": "Wind Load Rating",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/WindLoadRating",
+    "dataType": "String",
+    "definition": "Wind load resistance rating for this object.; It is provided according to the national building code."
   }
 ]
