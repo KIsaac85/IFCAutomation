@@ -47,7 +47,8 @@ namespace IFC_Parameter_Automation
 
         private void Check_IFC_Parameters(object sender, RoutedEventArgs e)
         {
-
+            ExcelExport excelExport = new ExcelExport();
+            excelExport.ExportParametersToExcel(doc);
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
