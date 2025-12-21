@@ -48,8 +48,16 @@ namespace IFC_Parameter_Automation
 
         private void Check_IFC_Parameters(object sender, RoutedEventArgs e)
         {
-            ExcelExport excelExport = new ExcelExport();
-            excelExport.ExportParametersToExcel(doc);
+            var exporter = new ExcelExport();
+
+            exporter.ExportParametersToExcel(
+                doc,
+                new List<BuiltInCategory>
+                {
+        BuiltInCategory.OST_Windows,
+        BuiltInCategory.OST_Doors,
+        BuiltInCategory.OST_Walls
+                });
             Close();
         }
 
