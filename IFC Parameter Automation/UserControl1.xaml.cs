@@ -43,12 +43,14 @@ namespace IFC_Parameter_Automation
             Close();
             AddParameters addParametersWindow = new AddParameters(_uidoc);
             addParametersWindow.ShowDialog();
+            Close();
         }
 
         private void Check_IFC_Parameters(object sender, RoutedEventArgs e)
         {
             ExcelExport excelExport = new ExcelExport();
             excelExport.ExportParametersToExcel(doc);
+            Close();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

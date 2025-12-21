@@ -18,7 +18,8 @@ namespace IFC_Parameter_Automation
     {
         public Document _doc { get; set; }
         private ExcelPackage package { get; set; }
-        
+        public IList<Parameter> elementParams { get; set; }
+
         public void ExportParametersToExcel(Document doc)
         {
             ExcelPackage.License.SetNonCommercialPersonal("abc");
@@ -33,15 +34,13 @@ namespace IFC_Parameter_Automation
             
 
             foreach (Element element in elements) {
-                IList<Parameter> elementParams = element.Parameters.Cast<Parameter>().Where(p => p.Definition.ParameterGroup == BuiltInParameterGroup.PG_IFC).ToList();
+                elementParams = element.Parameters.Cast<Parameter>().Where(p => p.Definition.GetGroupTypeId() == GroupTypeId.Ifc).ToList();
                 foreach (Parameter param in elementParams)
                 {
                     IFCParameters.Add(param);
-                    
                 }
             }
 
-            //IList<Parameter> IFCParameters = ele.Parameters.Cast<Parameter>().Where(p => p.Definition.ParameterGroup == BuiltInParameterGroup.PG_IFC).ToList();
             
             using (package = new ExcelPackage())
             {
@@ -68,7 +67,7 @@ namespace IFC_Parameter_Automation
 
                         mergeStartRow = row;
                     }
-                    IList<Parameter> elementParams = element.Parameters.Cast<Parameter>().Where(p => p.Definition.ParameterGroup == BuiltInParameterGroup.PG_IFC).ToList();
+                    
                     foreach (Parameter param in elementParams)
                     {
                         if (IsParameterEmpty(param))
@@ -108,6 +107,8 @@ namespace IFC_Parameter_Automation
                 range.Style.Border.Bottom.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
                 range.Style.Border.Left.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
                 range.Style.Border.Right.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+
+
                 SaveFileDialog saveFile = new SaveFileDialog
                 {
                     FileName = "NewSheet", // Default file name
