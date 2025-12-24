@@ -150,18 +150,10 @@ namespace IFC_Parameter_Automation
                     return string.IsNullOrWhiteSpace(param.AsString());
 
                 case StorageType.Integer:
-                    switch (param.AsValueString())
-                    {
-                        case "By Type":
-                            return false;
-                        case "0":
-                            return false;
-                        default:
-                            return true;
-                    }
+                 return false;
 
                 case StorageType.Double:
-
+                   
                     return !param.HasValue;
 
                 case StorageType.ElementId:
