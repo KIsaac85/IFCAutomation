@@ -97,8 +97,14 @@
                         selectedElement = new singleSelectedElement(singleElement);
 
                     }
+                else if (singleElement.Category.Id.Value == (int)BuiltInCategory.OST_Walls)
+                {
 
-                    if (!string.IsNullOrEmpty(JsonPath))
+                    JsonPath = @"F:\Access\semester 3\Project\IFC Parameter Automation\IFC Parameter Automation\Pset_WallCommon.JSON";
+                    selectedElement = new singleSelectedElement(singleElement);
+
+                }
+                if (!string.IsNullOrEmpty(JsonPath))
                     {
                         _viewModel.LoadProperties(JsonPath);
 

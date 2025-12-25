@@ -8,8 +8,7 @@ namespace IFC_Parameter_Automation
     /// <summary>
     /// this class is created to restrict the single selection to user
     /// only specific elements are allowed to be selected
-    /// the elements which may receive waterproofing 
-    /// e.g. columns/walls/foundation
+    /// e.g. doors/walls/windows
     /// </summary>
     class SelectionFilter : ISelectionFilter
     {
@@ -29,13 +28,13 @@ namespace IFC_Parameter_Automation
         {
             if (elem.Category.Id.Value == (int)BuiltInCategory.OST_Windows)
             {
-                
-               
-                    return true & null != elem; 
-                
+                    return true & null != elem;
             }
-       
             else if (elem.Category.Id.Value == (int)BuiltInCategory.OST_Doors)
+            {
+                return true & null != elem;
+            }
+            else if (elem.Category.Id.Value == (int)BuiltInCategory.OST_Walls)
             {
                 return true & null != elem;
             }
@@ -47,25 +46,22 @@ namespace IFC_Parameter_Automation
             //return false;
             RevitLinkInstance revitlinkinstance = _doc.GetElement(reference) as RevitLinkInstance;
             Document docLink = revitlinkinstance.GetLinkDocument();
-            Element eFootingLink = docLink.GetElement(reference.LinkedElementId);
-            if (eFootingLink.Category.Id.Value == (int)BuiltInCategory.OST_Windows)
+            Element eLink = docLink.GetElement(reference.LinkedElementId);
+            if (eLink.Category.Id.Value == (int)BuiltInCategory.OST_Windows)
             {
                
-                return true && null != eFootingLink;
+                return true && null != eLink;
                 
                 
             }
-            else if (eFootingLink.Category.Id.Value == (int)BuiltInCategory.OST_Doors)
+            else if (eLink.Category.Id.Value == (int)BuiltInCategory.OST_Doors)
             {
-
-               
-                
-
-                return true & null != eFootingLink;
-                
-
+                return true & null != eLink;
             }
-          
+            else if (eLink.Category.Id.Value == (int)BuiltInCategory.OST_Walls)
+            {
+                return true & null != eLink;
+            }
             return false;
         }
     }

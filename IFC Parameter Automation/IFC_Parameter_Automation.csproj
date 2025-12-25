@@ -115,6 +115,7 @@
   <ItemGroup>
     <None Include="IFC Parameter.addin" />
     <None Include="packages.config" />
+    <None Include="Pset_WallCommon.JSON" />
     <None Include="Pset_WindowCommon.JSON" />
     <None Include="Pset_DoorCommon.JSON" />
   </ItemGroup>

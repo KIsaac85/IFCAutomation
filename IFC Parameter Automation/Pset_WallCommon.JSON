@@ -1,0 +1,47 @@
+﻿[
+  {
+    "id": 0,
+    "code": "Acoustic Rating",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/AcousticRating",
+    "dataType": "String",
+    "definition": "Acoustic rating for this object.; It is provided according to the national building code. It indicates the sound transmission resistance of this object by an index ratio (instead of providing full sound absorption values). "
+  },
+  {
+    "id": 1,
+    "code": "Combustible",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/Combustible",
+    "dataType": "Boolean",
+    "definition": "Indication whether the object is made from combustible material (TRUE) or not (FALSE)."
+  },
+
+  {
+    "id": 2,
+    "code": "Compartmentation",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/Compartmentation",
+    "dataType": "Boolean",
+    "definition": "Indication whether the object is designed to serve as a fire compartmentation (TRUE) or not (FALSE)."
+  },
+  {
+    "id": 3,
+    "code": "Extend to Structure",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/ExtendToStructure",
+    "dataType": "Boolean",
+    "definition": "Indicates whether the object extend to the structure above (TRUE) or not (FALSE)."
+  },
+
+  {
+    "id": 4,
+    "code": "Status",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/Status",
+    "dataType": "String",
+    "definition": "[[Status]] of the element, predominately used in renovation or retrofitting projects. The status can be assigned to as 'New' - element designed as new addition, 'Existing' - element exists and remains, 'Demolish' - element existed but is to be demolished, 'Temporary' - element will exists only temporary (like a temporary support structure)."
+  },
+  {
+    "id": 5,
+    "code": "Surface Spread of Flame",
+    "dictionaryURI": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/SurfaceSpreadOfFlame",
+    "dataType": "String",
+    "definition": "Indication on how the flames spread around the surface,; It is given according to the national building code that governs the fire behaviour for materials."
+  }
+  
+]
