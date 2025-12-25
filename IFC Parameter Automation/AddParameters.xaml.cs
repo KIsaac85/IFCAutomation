@@ -86,21 +86,24 @@
                     if (singleElement.Category.Id.Value == (int)BuiltInCategory.OST_Windows)
                     {
 
-                        JsonPath = @"F:\Access\semester 3\Project\IFC Parameter Automation\IFC Parameter Automation\Pset_WindowCommon.JSON";
-                        selectedElement = new singleSelectedElement(singleElement);
+                    //JsonPath = GetJsonPath("Pset_WindowCommon.json");
+
+                    selectedElement = new singleSelectedElement(singleElement);
 
                     }
                     else if (singleElement.Category.Id.Value == (int)BuiltInCategory.OST_Doors)
                     {
 
-                        JsonPath = @"F:\Access\semester 3\Project\IFC Parameter Automation\IFC Parameter Automation\Pset_DoorCommon.JSON";
-                        selectedElement = new singleSelectedElement(singleElement);
+                    JsonPath = GetJsonPath("Pset_DoorCommon.json");
+                    TaskDialog.Show("debug", JsonPath);
+                    selectedElement = new singleSelectedElement(singleElement);
 
                     }
                 else if (singleElement.Category.Id.Value == (int)BuiltInCategory.OST_Walls)
                 {
 
-                    JsonPath = @"F:\Access\semester 3\Project\IFC Parameter Automation\IFC Parameter Automation\Pset_WallCommon.JSON";
+                    //JsonPath = GetJsonPath("Pset_WallCommon.json");
+
                     selectedElement = new singleSelectedElement(singleElement);
 
                 }
@@ -139,10 +142,10 @@
                     return;
                 }
                 cat = singleElement.Category;
-            // Build ParamList for handler
-            _handler.ParamList.Clear();
-            foreach (var prop in selectedProperties)
-            {
+                // Build ParamList for handler
+                _handler.ParamList.Clear();
+                foreach (var prop in selectedProperties)
+                {
                 bool alreadyExists = selectedElement.IFCparameters
                     .Any(p => p.Definition.Name.Equals(prop.Code, StringComparison.OrdinalIgnoreCase));
 
@@ -159,6 +162,7 @@
                     Description = prop.Definition,
                     Category = cat
                 });
+                Close();
             }
 
             if (!_handler.ParamList.Any())
@@ -177,6 +181,27 @@
 
 
         }
+        private string GetAddinFolder()
+        {
+            string revitVersion = _uidoc.Application.Application.VersionNumber;
+
+            return System.IO.Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+                "Autodesk",
+                "Revit",
+                "Addins",
+                revitVersion
+            );
+        }
+
+
+
+        private string GetJsonPath(string jsonFile)
+        {
+            return System.IO.Path.Combine(GetAddinFolder(), "Psets", jsonFile);
+        }
+
+
         public void AddParameter(string code, string dataType, string description, Category category)
             {
                 // Create a new shared parameter file (temporary)
@@ -198,7 +223,7 @@
                 //  Tell Revit to use this file as the shared parameter file
                 _uidoc.Application.Application.SharedParametersFilename = sharedParamPath;
 
-                // Now open it safely
+                
                 DefinitionFile defFile = _uidoc.Application.Application.OpenSharedParameterFile();
                 if (defFile == null)
                 {
@@ -243,4 +268,6 @@
             }
 
         }
+
     }
+

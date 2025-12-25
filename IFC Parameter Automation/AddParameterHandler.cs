@@ -95,49 +95,51 @@ namespace IFC_Parameter_Automation
                                 def = group.Definitions.Create(opts);
                             }
 
-                            // Build category set & binding
-                            CategorySet cs = uiApp.Application.Create.NewCategorySet();
-                            cs.Insert(p.Category);
-                            InstanceBinding binding = uiApp.Application.Create.NewInstanceBinding(cs);
-
-                            bool existsInMap = false;
                             
+                            Definition defInMap = null;
+                            InstanceBinding existingBinding = null;
 
                             var it = bindingMap.ForwardIterator();
                             it.Reset();
 
                             while (it.MoveNext())
                             {
-                                Definition defExisting = it.Key as Definition;
-                                Binding bindingExisting = it.Current as Binding;
+                                Definition d = it.Key as Definition;
 
-                                if (defExisting != null &&
-                                    defExisting.Name.Equals(p.Code, StringComparison.OrdinalIgnoreCase) &&
-                                    bindingExisting is InstanceBinding)
+                                if (d != null &&
+                                    d.Name.Equals(p.Code, StringComparison.OrdinalIgnoreCase))
                                 {
-                                    existsInMap = true;
+                                    defInMap = d;
+                                    existingBinding = it.Current as InstanceBinding;
                                     break;
                                 }
                             }
-
-
-
-
-                            if (existsInMap)
+    
+                      
+                            if (existingBinding != null && defInMap != null)
                             {
-                                // Parameter binding already present - skip or optionally ReInsert carefully
-                                continue;
+                                // Parameter already exists → ADD CATEGORY
+                                CategorySet cats = existingBinding.Categories;
+
+                                if (!cats.Contains(p.Category))
+                                {
+                                    cats.Insert(p.Category);
+
+                                    bindingMap.ReInsert(defInMap, existingBinding, GroupTypeId.Ifc);
+                                }
+                            }
+                            else
+                            {
+                                // Parameter does NOT exist → CREATE NEW
+                                CategorySet cs = uiApp.Application.Create.NewCategorySet();
+                                cs.Insert(p.Category);
+
+                                InstanceBinding newBinding =
+                                    uiApp.Application.Create.NewInstanceBinding(cs);
+
+                                bindingMap.Insert(def, newBinding, GroupTypeId.Ifc);
                             }
 
-                            bool inserted = bindingMap.Insert(def, binding, GroupTypeId.Ifc);
-
-                            // Optionally, if you want to set a default value on the current element(s), you can do that here.
-                            if (!inserted)
-                            {
-                                // If Insert failed, notify (but don't ReInsert blindly)
-                                // You may want to log more details in real code
-                                //TaskDialog.Show("Info", $"Parameter '{p.Code}' could not be inserted.");
-                            }
                         }
                         catch (Exception exInner)
                         {
