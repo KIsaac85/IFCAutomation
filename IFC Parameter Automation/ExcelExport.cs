@@ -121,50 +121,54 @@ namespace IFC_Parameter_Automation
         }
 
 
+        
+
         private bool IsParameterEmpty(Parameter param)
         {
             if (param == null)
                 return true;
-            if (param.Definition.Name.Equals("Export to IFC", StringComparison.OrdinalIgnoreCase))
-                return false;
-            // YES / NO parameters
-            if (param.Definition.GetDataType() == SpecTypeId.Boolean.YesNo)
-            {
-                switch (param.AsValueString())
-                {
-                    case "No":
-                        return false;
-                    case "Yes": 
-                        return false;
-                    case null: 
-                        return true;
-                    default: 
-                        return true;
-                        
-                }
-            }
 
-            switch (param.StorageType)
+            
+
+                switch (param.StorageType)
             {
                 case StorageType.String:
                     return string.IsNullOrWhiteSpace(param.AsString());
 
                 case StorageType.Integer:
-                 return false;
+
+                    switch (param.Definition.Name)
+                    {
+                        case "Export to IFC":
+                            switch (param.AsValueString())
+                            {
+                                case "No":
+                                    return true;
+                                case "Yes":
+                                    return false;
+                                case "By Type":
+                                    return false;
+                                default:
+                                    return true;
+
+                            }
+                        
+                    }
+
+                    return !param.HasValue;
 
                 case StorageType.Double:
-                   
                     return !param.HasValue;
 
                 case StorageType.ElementId:
                     return param.AsElementId() == ElementId.InvalidElementId;
 
+
+
                 default:
                     return true;
             }
         }
-
-
 
 
 
