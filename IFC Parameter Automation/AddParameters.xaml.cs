@@ -87,7 +87,7 @@
                     {
 
                     //JsonPath = GetJsonPath("Pset_WindowCommon.json");
-
+                    JsonPath = GetJsonPath("Pset_WindowCommon.json");
                     selectedElement = new singleSelectedElement(singleElement);
 
                     }
@@ -95,7 +95,7 @@
                     {
 
                     JsonPath = GetJsonPath("Pset_DoorCommon.json");
-                    TaskDialog.Show("debug", JsonPath);
+                    
                     selectedElement = new singleSelectedElement(singleElement);
 
                     }
@@ -103,7 +103,7 @@
                 {
 
                     //JsonPath = GetJsonPath("Pset_WallCommon.json");
-
+                    JsonPath = GetJsonPath("Pset_WallCommon.json");
                     selectedElement = new singleSelectedElement(singleElement);
 
                 }
