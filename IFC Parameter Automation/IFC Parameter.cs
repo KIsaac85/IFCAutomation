@@ -13,13 +13,10 @@ namespace IFC_Parameter_Automation
         {
             // Get the current document
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
-            // Your code to automate IFC parameters goes here
 
-            UserControl1 win = new UserControl1(uidoc);
+            ifcParameterWindow win = new ifcParameterWindow(uidoc);
             win.ShowDialog();
             return Result.Succeeded;
         }
     }
-
-
 }

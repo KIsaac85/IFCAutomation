@@ -22,7 +22,7 @@ namespace IFC_Parameter_Automation
         {
             ExcelPackage.License.SetNonCommercialPersonal("abc");
 
-           
+
             _doc = doc;
             using (package = new ExcelPackage())
             {
@@ -33,7 +33,7 @@ namespace IFC_Parameter_Automation
 
                 SaveExcel(package);
             }
-            
+
         }
         private void ExportCategorySheet(BuiltInCategory bic)
         {
@@ -51,7 +51,7 @@ namespace IFC_Parameter_Automation
             worksheet.Cells[1, 1].Value = "Element ID";
             worksheet.Cells[1, 2].Value = "Element Name";
             worksheet.Cells[1, 3].Value = "Parameter Name";
-            worksheet.Cells[1, 4].Value = "Parameter Value";
+           
 
             int row = 2;
             ElementId previousId = null;
@@ -83,7 +83,7 @@ namespace IFC_Parameter_Automation
                     worksheet.Cells[row, 1].Value = element.Id;
                     worksheet.Cells[row, 2].Value = element.Name;
                     worksheet.Cells[row, 3].Value = param.Definition.Name;
-                    worksheet.Cells[row, 4].Value = param.AsString();
+                   
 
                     previousId = element.Id;
                     row++;
@@ -117,20 +117,20 @@ namespace IFC_Parameter_Automation
             range.Style.Border.Left.Style =
             range.Style.Border.Right.Style =
                 OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-            
+
         }
 
 
-        
+
 
         private bool IsParameterEmpty(Parameter param)
         {
             if (param == null)
                 return true;
 
-            
 
-                switch (param.StorageType)
+
+            switch (param.StorageType)
             {
                 case StorageType.String:
                     return string.IsNullOrWhiteSpace(param.AsString());
@@ -152,7 +152,7 @@ namespace IFC_Parameter_Automation
                                     return true;
 
                             }
-                        
+
                     }
 
                     return !param.HasValue;
@@ -190,7 +190,7 @@ namespace IFC_Parameter_Automation
                 FileInfo file = new FileInfo(saveFile.FileName);
 
                 if (file.Exists)
-                    file.Delete(); 
+                    file.Delete();
 
                 package.SaveAs(file);
                 Process.Start(file.FullName);
